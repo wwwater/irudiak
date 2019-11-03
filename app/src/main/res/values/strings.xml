@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">irudiak</string>
+    <string name="main_view_text">230</string>
+    <string name="leftButton">L</string>
+    <string name="centerButton">C</string>
+    <string name="rightButton">R</string>
+    <string name="random_title">A random number between 0 and %1d</string>
+    <string name="random_title_text">A random number between 0 and %1d</string>
+    <string name="random_number">R</string>
+    <string name="checkButton">Ikusi</string>
+    <string name="noWord">Ez</string>
+    <string name="yesWord">Bai</string>
+    <string name="word">Lore</string>
+</resources>
