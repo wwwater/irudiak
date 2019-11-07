@@ -16,7 +16,7 @@ interface WordDao {
     fun findWordsToCheck(date: Int, count: Int): List<Word>
 
     @Insert
-    fun insertAll(vararg words: Word)
+    fun insertAll(words: Array<Word>)
 
     @Query("UPDATE word SET bucket = :newBucket, nextCheck = :newCheck WHERE id = :id")
     fun update(id: Int, newBucket: Int, newCheck: Int)

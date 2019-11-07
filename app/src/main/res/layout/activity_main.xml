@@ -4,15 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scaleX="1"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/bucket5_riping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_with_border"
+        android:padding="10dp"
+        android:text="R 5"
+        android:textSize="24sp"
+        android:textColor="@android:color/holo_green_dark"
+        app:layout_constraintBottom_toTopOf="@+id/bucket5"
+        app:layout_constraintEnd_toEndOf="@+id/bucket5"
+        app:layout_constraintStart_toStartOf="@+id/bucket5" />
+
+    <TextView
+        android:id="@+id/bucket4_riping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_with_border"
+        android:padding="10dp"
+        android:text="R 4"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/bucket4"
+        app:layout_constraintEnd_toEndOf="@+id/bucket4"
+        app:layout_constraintStart_toStartOf="@+id/bucket4" />
+
+    <TextView
+        android:id="@+id/bucket2_riping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_with_border"
+        android:padding="10dp"
+        android:text="R 2"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/bucket2"
+        app:layout_constraintEnd_toEndOf="@+id/bucket2"
+        app:layout_constraintStart_toStartOf="@+id/bucket2" />
 
     <TextView
         android:id="@+id/bucket1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
+        android:background="@drawable/rectangle_with_border"
+        android:padding="10dp"
         android:text="B 1"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="24sp"
         app:fontFamily="sans-serif-condensed"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,7 +65,10 @@
         android:id="@+id/bucket2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_with_border"
+        android:padding="10dp"
         android:text="B 2"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bucket3"
@@ -34,7 +79,10 @@
         android:id="@+id/bucket3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_with_border"
+        android:padding="10dp"
         android:text="B 3"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,10 +90,27 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/bucket3_riping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_with_border"
+        android:padding="10dp"
+        android:text="R 3"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/bucket3"
+        app:layout_constraintEnd_toEndOf="@+id/bucket3"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/bucket3" />
+
+    <TextView
         android:id="@+id/bucket4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_with_border"
+        android:padding="10dp"
         android:text="B 4"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bucket5"
@@ -58,7 +123,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
+        android:background="@drawable/rectangle_with_border"
+        android:padding="10dp"
         android:text="B 5"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,24 +136,78 @@
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FF9800"
+        android:background="@android:color/transparent"
+        android:onClick="startCheckingWords"
+        android:scaleX="3"
+        android:scaleY="3"
         android:tint="#8BC34A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bucket3"
-        app:srcCompat="@android:drawable/ic_media_play"
-        android:onClick="startCheckingWords"/>
+        app:srcCompat="@android:drawable/ic_media_play" />
 
     <TextView
         android:id="@+id/wordsReady"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ready"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@+id/imageButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bucket3" />
 
+    <TextView
+        android:id="@+id/bucket2_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="2"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/bucket2_riping"
+        app:layout_constraintEnd_toEndOf="@+id/bucket2_riping"
+        app:layout_constraintStart_toStartOf="@+id/bucket2_riping"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bucket3_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="7"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/bucket3_riping"
+        app:layout_constraintEnd_toEndOf="@+id/bucket3_riping"
+        app:layout_constraintStart_toStartOf="@+id/bucket3_riping"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bucket4_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="30"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/bucket4_riping"
+        app:layout_constraintEnd_toEndOf="@+id/bucket4_riping"
+        app:layout_constraintStart_toStartOf="@+id/bucket4_riping"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bucket5_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="180"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/bucket5_riping"
+        app:layout_constraintEnd_toEndOf="@+id/bucket5_riping"
+        app:layout_constraintStart_toStartOf="@+id/bucket5_riping"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

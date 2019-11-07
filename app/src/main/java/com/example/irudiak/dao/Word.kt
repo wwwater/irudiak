@@ -5,12 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Word (
+    @PrimaryKey
+    var id : Int,
     var meaning: String,
-    var picture: String,
     var bucket : Int,
     var nextCheck : Int
-) {
-    @PrimaryKey(autoGenerate = true)
-    var id: Int = 0
-
-}
+)

@@ -7,7 +7,7 @@ import androidx.room.Room
 class DatabaseClient private constructor(mCtx: Context) {
 
     var appDatabase: AppDatabase =
-        Room.databaseBuilder(mCtx, AppDatabase::class.java, "words-db-4").build()
+        Room.databaseBuilder(mCtx, AppDatabase::class.java, "words-db-5").build()
 
     companion object {
         var mInstance: DatabaseClient? = null

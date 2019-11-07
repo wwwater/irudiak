@@ -34,11 +34,9 @@ class MainActivity : AppCompatActivity() {
             var ws = db.wordDao().getAll()
             if (ws.isEmpty()) {
                 val now = (System.currentTimeMillis() / 1000).toInt()
-                db.wordDao().insertAll(
-                    Word("lore", "pic1", 0, now),
-                    Word("zuhaitz", "pic2", 0, now),
-                    Word("esku", "pic3", 2, now)
-                )
+                val words = InitialWords.WORDS.map { pair ->
+                    Word (pair.first, pair.second, 0 , now) }.toTypedArray()
+                db.wordDao().insertAll(words)
                 ws = db.wordDao().getAll()
             }
             Log.i("kokoko", ws.toString())
@@ -47,15 +45,22 @@ class MainActivity : AppCompatActivity() {
 
         override fun onPostExecute(words: List<Word>) {
             super.onPostExecute(words)
+            val now = (System.currentTimeMillis() / 1000).toInt()
+            val ripingWords = words.filter { w -> w.nextCheck > now }
+            val readyWords = words.filter { w -> w.nextCheck <= now }
+            arrayOf(R.id.bucket2_riping, R.id.bucket3_riping, R.id.bucket4_riping, R.id.bucket5_riping)
+                .forEachIndexed { index, b ->
+                    findViewById<TextView>(b).text =
+                        ripingWords.filter { w -> w.bucket == index + 1}.count().toString()
+
+                }
             arrayOf(R.id.bucket1, R.id.bucket2, R.id.bucket3, R.id.bucket4, R.id.bucket5)
                 .forEachIndexed { index, b ->
                     findViewById<TextView>(b).text =
-                        words.filter { w -> w.bucket == index }.count().toString()
+                        readyWords.filter { w -> w.bucket == index }.count().toString()
 
                 }
-            val now = (System.currentTimeMillis() / 1000).toInt()
-            val readyToCheck = words.filter { w -> w.nextCheck <= now }.count()
-            findViewById<TextView>(R.id.wordsReady).text = "To learn: $readyToCheck"
+            findViewById<TextView>(R.id.wordsReady).text = readyWords.count().toString()
         }
     }
 
@@ -81,6 +86,7 @@ class MainActivity : AppCompatActivity() {
             extras.putStringArrayList(WORD_ARRAY, ArrayList(words.map { w -> w.meaning }))
             val toShowImage = Intent(applicationContext, ShowImageActivity::class.java)
             toShowImage.putExtra(WORDS_BUNDLE, extras)
+            toShowImage.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(toShowImage)
         }
     }
